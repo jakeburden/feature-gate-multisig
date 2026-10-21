@@ -5,6 +5,23 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.2] - 2026-10-21
+
+### Security
+
+- `rustls-webpki` 0.103.16 rejects any certificate path containing one of the
+  compromised emSign intermediate keys, whatever the configured trust anchors
+  allow (RUSTSEC-2026-0382). This completes what 0.5.1 started: removing the
+  root closed the direct path, but a chain through a cross-signed intermediate
+  could still validate, since this client does no revocation checking.
+- `rustls` 0.23.46, covering four further advisories: TLS secrets reachable
+  through `Debug` on client session values (RUSTSEC-2026-0346), buffered
+  application data sent to the outer server after an ECH rejection
+  (RUSTSEC-2026-0347), up to 1 GiB allocated during Brotli certificate
+  decompression before the certificate is authenticated (RUSTSEC-2026-0348),
+  and an unauthenticated `ServerHello` able to downgrade later connections to
+  classical key exchange (RUSTSEC-2026-0349).
+
 ## [0.5.1] - 2026-10-21
 
 ### Security
