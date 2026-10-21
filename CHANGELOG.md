@@ -5,6 +5,18 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.1] - 2026-10-21
+
+### Security
+
+- `webpki-roots` 1.0.10, which drops `emSign ECC Root CA - G3`. Eight eMudhra
+  intermediate CA keys were generated with weak entropy and could be recovered
+  from the public certificates, letting anyone forge a trusted certificate for
+  any host. This tool compiles its root store into the binary rather than
+  reading the operating system's, so a vendor or OS trust-store update does not
+  reach it: 0.5.0 and earlier keep trusting that root until rebuilt. Reinstall
+  from this tag.
+
 ## [0.5.0] - 2026-09-23
 
 ### Security
