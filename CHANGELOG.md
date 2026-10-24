@@ -5,6 +5,18 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- Ledger Stax, Flex and Nano Gen5 were not detected (`no device found`, or
+  `Version packet size mismatch` from `solana-keygen`) because these devices
+  answer the Solana app's configuration query with 7 bytes and the pinned
+  `solana-remote-wallet` 3.1.14 requires exactly 5. The crate is vendored under
+  `vendor/solana-remote-wallet` with that check relaxed, the fix agave carries
+  on `master` (anza-xyz/agave#15100, #15543) but has not released on the 3.x
+  line. Nano X and Nano S+ are unaffected.
+
 ## [0.5.2] - 2026-10-23
 
 ### Security

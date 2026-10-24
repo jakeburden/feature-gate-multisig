@@ -16,6 +16,11 @@ To check hardware-wallet support in your build: any command against a
 found", not "hidapi crate compilation disabled" (Ledger signing cannot work in
 that build).
 
+Ledger Stax, Flex and Nano Gen5 need the vendored `solana-remote-wallet` under
+`vendor/` (see `vendor/solana-remote-wallet/VENDORED.md`); releases before
+that fix report "no device found" for those models even when the device is
+plugged in, unlocked and on the Solana app.
+
 Install a released version:
 
 ```bash

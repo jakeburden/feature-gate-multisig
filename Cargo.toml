@@ -73,3 +73,9 @@ unimplemented = "deny"
 exit = "deny"
 mem_forget = "deny"
 # Wider pedantic adoption is deferred (~260 findings) - track separately.
+
+# solana-remote-wallet 3.1.14 from crates.io with a one-hunk fix so Ledger Stax,
+# Flex and Nano Gen5 enumerate; see vendor/solana-remote-wallet/VENDORED.md.
+# Drop once the solana-* pins include anza-xyz/agave#15543.
+[patch.crates-io]
+solana-remote-wallet = { path = "vendor/solana-remote-wallet" }

@@ -3203,8 +3203,6 @@ dependencies = [
 [[package]]
 name = "solana-remote-wallet"
 version = "3.1.14"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "24328633f4e6c072f3f1cbb8e43de1b881d0d94aa831e9836466cbb6a733a7af"
 dependencies = [
  "console 0.16.4",
  "dialoguer",
